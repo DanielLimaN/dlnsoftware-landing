@@ -21,10 +21,10 @@ export function Hero() {
           Solicitar Consultoria
         </a>
         <a
-          href="#servicos"
+          href="#produtos"
           className="inline-flex items-center px-8 py-4 border border-card-border text-bone font-medium text-base rounded-lg no-underline hover:bg-card-hover transition-colors"
         >
-          Ver Serviços
+          Ver Cases
         </a>
       </div>
     </section>

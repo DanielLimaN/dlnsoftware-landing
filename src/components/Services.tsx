@@ -49,7 +49,6 @@ export function Services() {
             key={service.title}
             className="flex flex-col gap-3 p-8 sm:p-9 bg-card border border-card-border rounded-2xl"
           >
-            <FlowIcon size={32} />
             <h3 className="text-xl font-bold text-bone">{service.title}</h3>
             <ul className="flex flex-col gap-1.5">
               {service.items.map((item) => (
@@ -61,6 +60,7 @@ export function Services() {
                 </li>
               ))}
             </ul>
+            <FlowIcon size={32} className="mt-auto" />
           </div>
         ))}
       </div>

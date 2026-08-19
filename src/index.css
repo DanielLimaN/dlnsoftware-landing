@@ -12,7 +12,28 @@
   --color-card-border: #1F2937;
   --color-card-hover: #1a2332;
   --color-input-bg: #0B0F1A;
+  --color-panel: #0E1526;
+  --color-slate: #CBD5E1;
+  --color-faint: #475569;
+  --color-anchor: #0E1B22;
+  --color-anchor-border: #1C2E33;
   --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+.dot-grid {
+  background-color: #0E1526;
+  background-image: radial-gradient(circle, rgba(107, 120, 140, 0.3) 1px, transparent 1.6px);
+  background-size: 22px 22px;
+}
+
+.scanlines {
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 2px,
+    rgba(0, 0, 0, 0.14) 2px,
+    rgba(0, 0, 0, 0.14) 4px
+  );
 }
 
 * {

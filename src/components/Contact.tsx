@@ -33,7 +33,7 @@ export function Contact() {
       </p>
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-[600px] bg-card border border-card-border rounded-2xl p-8 sm:p-10 flex flex-col gap-5"
+        className="w-full max-w-[600px] bg-card border border-card-border rounded-2xl px-9 py-10 flex flex-col gap-5"
       >
         <FormField
           label="Nome completo"
@@ -55,7 +55,7 @@ export function Contact() {
           required
         />
         <div className="flex flex-col gap-2">
-          <label className="text-sm font-semibold text-bone/90" htmlFor="mensagem">
+          <label className="text-sm font-semibold text-slate" htmlFor="mensagem">
             Mensagem
           </label>
           <textarea
@@ -64,13 +64,13 @@ export function Contact() {
             required
             placeholder="Conte-nos sobre seu projeto..."
             rows={4}
-            className="w-full bg-input-bg border border-card-border rounded-lg px-4 py-3.5 text-sm text-bone placeholder:text-subtle resize-none outline-none focus:border-signal/50 transition-colors"
+            className="w-full bg-input-bg border border-card-border rounded-lg px-4 py-3.5 text-sm text-bone placeholder:text-faint resize-none outline-none focus:border-signal/50 transition-colors"
           />
         </div>
         <button
           type="submit"
           disabled={submitted}
-          className="w-full h-[52px] bg-signal text-ink font-bold text-base rounded-lg hover:opacity-90 disabled:opacity-50 transition-opacity cursor-pointer"
+          className="w-full h-[52px] bg-signal text-ink font-bold text-base rounded-[10px] hover:opacity-90 disabled:opacity-50 transition-opacity cursor-pointer"
         >
           {submitted ? "Solicitação Enviada ✓" : "Enviar Solicitação"}
         </button>
@@ -99,7 +99,7 @@ function FormField({
 }) {
   return (
     <div className="flex flex-col gap-2">
-      <label className="text-sm font-semibold text-bone/90" htmlFor={name}>
+      <label className="text-sm font-semibold text-slate" htmlFor={name}>
         {label}
       </label>
       <input
@@ -108,7 +108,7 @@ function FormField({
         type={type}
         required={required}
         placeholder={placeholder}
-        className="w-full h-12 bg-input-bg border border-card-border rounded-lg px-4 text-sm text-bone placeholder:text-subtle outline-none focus:border-signal/50 transition-colors"
+        className="w-full h-12 bg-input-bg border border-card-border rounded-lg px-4 text-sm text-bone placeholder:text-faint outline-none focus:border-signal/50 transition-colors"
       />
     </div>
   )

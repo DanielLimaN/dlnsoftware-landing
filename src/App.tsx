@@ -2,6 +2,7 @@ import { Nav } from "./components/Nav"
 import { Hero } from "./components/Hero"
 import { Services } from "./components/Services"
 import { Method } from "./components/Method"
+import { SquadCraft } from "./components/SquadCraft"
 import { Differentials } from "./components/Differentials"
 import { Contact } from "./components/Contact"
 import { CTA } from "./components/CTA"
@@ -14,6 +15,7 @@ export default function App() {
       <Hero />
       <Services />
       <Method />
+      <SquadCraft />
       <Differentials />
       <Contact />
       <CTA />

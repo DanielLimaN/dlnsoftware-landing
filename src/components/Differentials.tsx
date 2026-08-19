@@ -38,9 +38,9 @@ export function Differentials() {
             key={item.title}
             className="flex flex-col gap-3 p-7 sm:p-9 bg-card border border-card-border rounded-2xl"
           >
-            <FlowIcon size={32} />
             <h3 className="text-lg font-bold text-bone">{item.title}</h3>
             <p className="text-sm text-muted leading-relaxed">{item.desc}</p>
+            <FlowIcon size={32} className="mt-auto" />
           </div>
         ))}
       </div>
