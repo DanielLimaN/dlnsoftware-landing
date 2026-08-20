@@ -1,9 +1,10 @@
+import { openChat } from "../lib/chat"
+
 const links = [
   { label: "Serviços", href: "#servicos" },
   { label: "Produtos", href: "#produtos" },
   { label: "Método", href: "#metodo" },
   { label: "Diferenciais", href: "#diferenciais" },
-  { label: "Contato", href: "#contato" },
 ]
 
 export function Nav() {
@@ -27,13 +28,19 @@ export function Nav() {
             {link.label}
           </a>
         ))}
+        <button
+          onClick={openChat}
+          className="text-sm font-medium text-muted hover:text-bone transition-colors cursor-pointer bg-transparent border-0 p-0"
+        >
+          Contato
+        </button>
       </div>
-      <a
-        href="#contato"
-        className="md:hidden text-sm font-semibold text-signal no-underline"
+      <button
+        onClick={openChat}
+        className="md:hidden text-sm font-semibold text-signal cursor-pointer bg-transparent border-0 p-0"
       >
         Contato
-      </a>
+      </button>
     </nav>
   )
 }

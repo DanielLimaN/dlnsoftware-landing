@@ -1,4 +1,5 @@
 import { FlowMark } from "./FlowMark"
+import { openChat } from "../lib/chat"
 
 export function CTA() {
   return (
@@ -9,15 +10,15 @@ export function CTA() {
           Vamos transformar suas operações?
         </h2>
         <p className="text-base text-muted text-center max-w-[500px]">
-          Agende uma conversa sem compromisso para entendermos como podemos
-          ajudar sua empresa a evoluir.
+          Chame a gente pelo chat para entendermos como podemos ajudar sua
+          empresa a evoluir.
         </p>
-        <a
-          href="#contato"
-          className="inline-flex items-center px-12 py-[18px] bg-signal text-ink font-bold text-base rounded-lg no-underline hover:opacity-90 transition-opacity"
+        <button
+          onClick={openChat}
+          className="inline-flex items-center px-12 py-[18px] bg-signal text-ink font-bold text-base rounded-lg hover:opacity-90 transition-opacity cursor-pointer border-0"
         >
           Solicitar Consultoria
-        </a>
+        </button>
       </div>
     </section>
   )

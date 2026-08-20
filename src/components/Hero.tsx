@@ -1,4 +1,5 @@
 import { FlowMark } from "./FlowMark"
+import { openChat } from "../lib/chat"
 
 export function Hero() {
   return (
@@ -14,12 +15,12 @@ export function Hero() {
         e transformação digital para o seu negócio.
       </p>
       <div className="flex flex-wrap items-center gap-4">
-        <a
-          href="#contato"
-          className="inline-flex items-center px-8 py-4 bg-signal text-ink font-bold text-base rounded-lg no-underline hover:opacity-90 transition-opacity"
+        <button
+          onClick={openChat}
+          className="inline-flex items-center px-8 py-4 bg-signal text-ink font-bold text-base rounded-lg hover:opacity-90 transition-opacity cursor-pointer border-0"
         >
           Solicitar Consultoria
-        </a>
+        </button>
         <a
           href="#produtos"
           className="inline-flex items-center px-8 py-4 border border-card-border text-bone font-medium text-base rounded-lg no-underline hover:bg-card-hover transition-colors"

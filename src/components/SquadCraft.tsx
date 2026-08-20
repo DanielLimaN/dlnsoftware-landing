@@ -12,6 +12,7 @@ import {
   Workflow,
 } from "lucide-react"
 import { useState } from "react"
+import { openChat } from "../lib/chat"
 
 const portfolio = [
   {
@@ -175,13 +176,13 @@ export function SquadCraft() {
             <h3 className="text-2xl sm:text-3xl font-bold leading-[1.25] tracking-tight text-bone">
               Sua equipe de IA montada com você, não uma tela em branco
             </h3>
-            <a
-              href="#contato"
-              className="mt-2 inline-flex w-fit items-center gap-2 rounded-[10px] bg-signal px-6 py-3.5 text-[15px] font-bold text-ink no-underline hover:opacity-90 transition-opacity"
+            <button
+              onClick={openChat}
+              className="mt-2 inline-flex w-fit items-center gap-2 rounded-[10px] bg-signal px-6 py-3.5 text-[15px] font-bold text-ink hover:opacity-90 transition-opacity cursor-pointer border-0"
             >
               Agendar conversa de 30 min
               <ArrowRight size={16} className="text-ink" />
-            </a>
+            </button>
           </div>
           
           <ul className="flex flex-col gap-3.5 flex-1 max-w-[500px]">
@@ -341,15 +342,27 @@ function PortfolioCard({
         )}
         <p className="text-sm text-muted leading-relaxed">{desc}</p>
       </div>
-      <a
-        href={name === "SquadCraft" ? "#squadcraft" : "#contato"}
-        className={`inline-flex items-center gap-2 text-sm font-semibold no-underline ${
-          accent ? "text-signal hover:text-bone" : "text-subtle hover:text-slate"
-        } transition-colors`}
-      >
-        {link}
-        <ArrowRight size={15} />
-      </a>
+      {name === "SquadCraft" ? (
+        <a
+          href="#squadcraft"
+          className={`inline-flex items-center gap-2 text-sm font-semibold no-underline ${
+            accent ? "text-signal hover:text-bone" : "text-subtle hover:text-slate"
+          } transition-colors`}
+        >
+          {link}
+          <ArrowRight size={15} />
+        </a>
+      ) : (
+        <button
+          onClick={openChat}
+          className={`inline-flex items-center gap-2 text-sm font-semibold bg-transparent border-0 p-0 cursor-pointer ${
+            accent ? "text-signal hover:text-bone" : "text-subtle hover:text-slate"
+          } transition-colors`}
+        >
+          {link}
+          <ArrowRight size={15} />
+        </button>
+      )}
     </div>
   )
 }
@@ -407,16 +420,16 @@ function PlanCard({
           )
         })}
       </ul>
-      <a
-        href="#contato"
-        className={`mt-auto flex w-full items-center justify-center rounded-[10px] px-5 py-3.5 text-[15px] no-underline ${
+      <button
+        onClick={openChat}
+        className={`mt-auto flex w-full items-center justify-center rounded-[10px] px-5 py-3.5 text-[15px] cursor-pointer ${
           featured
-            ? "bg-signal font-bold text-ink hover:opacity-90 transition-opacity"
+            ? "border-0 bg-signal font-bold text-ink hover:opacity-90 transition-opacity"
             : "border border-card-border font-medium text-bone hover:bg-card-hover transition-colors"
         }`}
       >
         {cta}
-      </a>
+      </button>
     </div>
   )
 }
