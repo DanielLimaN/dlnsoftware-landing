@@ -21,9 +21,15 @@ export function Footer() {
           contato@dlnsoftware.com.br
         </a>
       </div>
-      <p className="w-full max-w-[1280px] mx-auto text-xs text-subtle">
-        &copy; {new Date().getFullYear()} DLN Software. Todos os direitos reservados.
-      </p>
+      <div className="w-full max-w-[1280px] mx-auto flex flex-col gap-1">
+        <p className="text-xs text-subtle">
+          DANIEL LIMA DO NASCIMENTO CONSULTORIA EM TECNOLOGIA DA INFORMACAO LTDA
+        </p>
+        <p className="text-xs text-subtle">CNPJ 47.389.772/0001-20</p>
+        <p className="text-xs text-subtle">
+          &copy; {new Date().getFullYear()} DLN Software. Todos os direitos reservados.
+        </p>
+      </div>
     </footer>
   )
 }
