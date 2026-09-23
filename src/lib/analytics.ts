@@ -1,7 +1,7 @@
 import posthog from "posthog-js"
 
 const KEY = import.meta.env.VITE_POSTHOG_KEY || "phc_D4qFmcm4EptTnZWLvU4p4SvhKmBucna7fXb9BGKXvNQT"
-const HOST = import.meta.env.VITE_POSTHOG_HOST || "https://us.i.posthog.com"
+const HOST = import.meta.env.VITE_POSTHOG_HOST || "https://eu.i.posthog.com"
 
 export type Consent = "granted" | "denied" | "pending"
 
