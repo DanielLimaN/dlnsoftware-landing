@@ -91,7 +91,7 @@ function FlowDiagram() {
 
 export function Hero() {
   return (
-    <section className="max-w-[1240px] mx-auto px-8 pt-[72px]">
+    <section data-section="hero" className="max-w-[1240px] mx-auto px-8 pt-[72px]">
       <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,380px),1fr))] gap-[52px] items-center">
         <div>
           <h1 className="font-serif font-normal text-[clamp(40px,5.2vw,70px)] leading-[1.03] tracking-[-0.022em] m-0 max-w-[22ch]">

@@ -28,6 +28,7 @@ export function Falar() {
           <button
             type="button"
             onClick={openChat}
+            data-track="chat_open"
             className="bg-sc-ink text-sc-green border-0 font-[inherit] font-extrabold text-[clamp(16px,1.8vw,20px)] uppercase tracking-[0.02em] p-5 cursor-pointer transition-transform duration-150 hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-[6px_6px_0_#0E7A49]"
           >
             Abrir o chat →

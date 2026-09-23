@@ -147,6 +147,7 @@ export function SquadCraft() {
                 </div>
                 <a
                   href={p.href}
+                  data-track-plan={p.name}
                   className={`mt-auto text-center no-underline text-base p-3.5 ${
                     p.featured ? `${ctaPrimary} text-green-ink hover:text-green-ink` : `${ctaOutline} text-frost hover:text-frost`
                   }`}

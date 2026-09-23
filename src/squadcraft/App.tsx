@@ -10,6 +10,7 @@ import { Planos } from "./components/Planos"
 import { Duvidas } from "./components/Duvidas"
 import { Falar } from "./components/Falar"
 import { Footer } from "./components/Footer"
+import { ConsentBanner } from "../lib/ConsentBanner"
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
       <Duvidas />
       <Falar />
       <Footer />
+      <ConsentBanner variant="squadcraft" />
     </div>
   )
 }

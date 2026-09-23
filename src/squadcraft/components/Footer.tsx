@@ -1,3 +1,4 @@
+import { reopenConsent } from "../../lib/analytics"
 import { EMAIL, LINKEDIN_URL, WHATSAPP_LABEL, WHATSAPP_URL } from "../data"
 import { Wordmark } from "./ui"
 
@@ -44,8 +45,11 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-sc-line">
-        <div className="max-w-[1400px] mx-auto px-6 pt-[18px] pb-[104px] font-mono text-[11.5px] text-sc-gray">
-          © {new Date().getFullYear()} DLN Software
+        <div className="max-w-[1400px] mx-auto px-6 pt-[18px] pb-[104px] font-mono text-[11.5px] text-sc-gray flex flex-wrap justify-between gap-3">
+          <span>© {new Date().getFullYear()} DLN Software</span>
+          <button type="button" onClick={reopenConsent} className="bg-transparent border-0 p-0 font-[inherit] text-sc-gray cursor-pointer underline hover:text-sc-ink">
+            Preferências de cookies
+          </button>
         </div>
       </div>
     </footer>

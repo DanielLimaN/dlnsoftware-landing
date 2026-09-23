@@ -3,7 +3,7 @@ import { ToolLogo } from "./ui"
 
 export function Ferramentas() {
   return (
-    <section className="border-b border-sc-line">
+    <section data-section="integracoes" className="border-b border-sc-line">
       <div className="max-w-[1400px] mx-auto px-6 py-[clamp(36px,4.4vw,60px)]">
         <span className="font-mono text-xs font-semibold tracking-[0.12em] uppercase text-sc-gray">
           Entra onde o trabalho já acontece

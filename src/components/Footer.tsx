@@ -1,3 +1,4 @@
+import { reopenConsent } from "../lib/analytics"
 import { EMAIL, LINKEDIN_URL, Logo, SQUADCRAFT_URL, WHATSAPP_LABEL, WHATSAPP_URL } from "./ui"
 
 const heading = "font-mono text-[11px] tracking-[0.12em] uppercase text-ink-3"
@@ -40,8 +41,11 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-line">
-        <div className="max-w-[1240px] mx-auto px-8 py-5 font-mono text-xs text-ink-3">
-          © {new Date().getFullYear()} DLN Software
+        <div className="max-w-[1240px] mx-auto px-8 py-5 font-mono text-xs text-ink-3 flex flex-wrap justify-between gap-3">
+          <span>© {new Date().getFullYear()} DLN Software</span>
+          <button type="button" onClick={reopenConsent} className="bg-transparent border-0 p-0 font-[inherit] text-ink-3 cursor-pointer underline hover:text-ink">
+            Preferências de cookies
+          </button>
         </div>
       </div>
     </footer>

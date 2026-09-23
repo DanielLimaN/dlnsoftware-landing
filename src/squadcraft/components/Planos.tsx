@@ -34,6 +34,7 @@ export function Planos() {
               </div>
               <a
                 href="#falar"
+                data-track-plan={p.nome}
                 className={`justify-self-start no-underline font-extrabold text-sm uppercase tracking-[0.02em] px-[26px] py-[15px] shrink-0 ${
                   p.destaque
                     ? "bg-sc-ink text-sc-green hover:text-sc-green"

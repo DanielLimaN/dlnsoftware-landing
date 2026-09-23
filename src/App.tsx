@@ -7,6 +7,7 @@ import { Method } from "./components/Method"
 import { Calculator } from "./components/Calculator"
 import { Contact } from "./components/Contact"
 import { Footer } from "./components/Footer"
+import { ConsentBanner } from "./lib/ConsentBanner"
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
       <Calculator />
       <Contact />
       <Footer />
+      <ConsentBanner variant="dln" />
     </div>
   )
 }

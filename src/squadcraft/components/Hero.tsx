@@ -18,7 +18,7 @@ function MarqueeTrack({ hidden }: { hidden?: boolean }) {
 
 export function Hero() {
   return (
-    <section className="bg-sc-green text-sc-ink relative overflow-hidden">
+    <section data-section="hero" className="bg-sc-green text-sc-ink relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 pt-[clamp(40px,6vw,80px)] pb-[clamp(30px,4vw,48px)]">
         <div className="flex items-center gap-3 mb-[clamp(24px,3vw,40px)]">
           <Blink />

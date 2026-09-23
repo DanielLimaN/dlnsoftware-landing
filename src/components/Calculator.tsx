@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import { track } from "../lib/analytics"
 import { Eyebrow } from "./ui"
 
 const PROJECT_COST = 18000
@@ -72,13 +73,27 @@ export function Calculator() {
   const custoAno = horasAno * custo
   const mensal = custoAno / 12
 
+  // Report the settled numbers, not every +/- tap; skip the initial defaults.
+  const mounted = useRef(false)
+  useEffect(() => {
+    if (!mounted.current) {
+      mounted.current = true
+      return
+    }
+    const t = setTimeout(
+      () => track("calculator_change", { pessoas, horas, custo_hora: custo, custo_ano: custoAno }),
+      1000,
+    )
+    return () => clearTimeout(t)
+  }, [pessoas, horas, custo, custoAno])
+
   const paybackSquad =
     mensal > SQUAD_MONTHLY
       ? "se cobrir " + Math.ceil((SQUAD_MONTHLY / mensal) * 100) + "% desse custo, já se paga"
       : "acima do custo atual — comece pela consultoria"
 
   return (
-    <section className="border-t border-line">
+    <section data-section="calculadora" className="border-t border-line">
       <div className="max-w-[1240px] mx-auto px-8 py-[88px] grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] gap-14 items-start">
         <div>
           <Eyebrow>Calculadora</Eyebrow>
