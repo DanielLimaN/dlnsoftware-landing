@@ -82,7 +82,7 @@ export function Case() {
           </p>
           <div className="flex flex-wrap items-center gap-3.5 mt-auto pt-3.5">
             <img
-              src="/assets/cromatic-logo.png"
+              src="/assets/cromatic-logo.webp"
               alt="Cromatic"
               width={240}
               height={240}
@@ -97,7 +97,7 @@ export function Case() {
         </div>
         <div className="bg-night-2 flex items-center justify-center p-[clamp(28px,4vw,48px)] min-w-0">
           <img
-            src="/assets/cromatic-nec-one.png"
+            src="/assets/cromatic-nec-one.webp"
             width={1071}
             height={1122}
             loading="lazy"

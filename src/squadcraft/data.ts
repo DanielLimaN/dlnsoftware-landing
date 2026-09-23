@@ -6,12 +6,12 @@ export const LINKEDIN_URL = "https://www.linkedin.com/company/dln-software"
 export type Foco = [string, string, string, string]
 
 export const QUADROS: { legenda: string; foco: Foco | null; src: string; alt: string }[] = [
-  { legenda: "Na biblioteca: o gatilho.", foco: ["1.2%", "53.5%", "12.6%", "5.2%"], src: "/assets/flow/01.png", alt: "Canvas vazio com a biblioteca do Studio" },
-  { legenda: "Mensagem recebida no WhatsApp.", foco: ["41.8%", "12.4%", "24.6%", "28.4%"], src: "/assets/flow/02.png", alt: "Gatilho do WhatsApp no canvas" },
-  { legenda: "Um agente entra no canvas.", foco: ["21.4%", "53.2%", "31.4%", "34.1%"], src: "/assets/flow/03.png", alt: "Agente adicionado ao canvas" },
-  { legenda: "A tarefa: o que deve ser feito.", foco: ["63.9%", "52.9%", "31.6%", "21.1%"], src: "/assets/flow/04.png", alt: "Tarefa adicionada ao canvas" },
-  { legenda: "Gatilho ligado na tarefa.", foco: null, src: "/assets/flow/05.png", alt: "Gatilho ligado na tarefa" },
-  { legenda: "Tarefa ligada no agente — squad montado.", foco: null, src: "/assets/flow/06.png", alt: "Tarefa ligada no agente" },
+  { legenda: "Na biblioteca: o gatilho.", foco: ["1.2%", "53.5%", "12.6%", "5.2%"], src: "/assets/flow/01.webp", alt: "Canvas vazio com a biblioteca do Studio" },
+  { legenda: "Mensagem recebida no WhatsApp.", foco: ["41.8%", "12.4%", "24.6%", "28.4%"], src: "/assets/flow/02.webp", alt: "Gatilho do WhatsApp no canvas" },
+  { legenda: "Um agente entra no canvas.", foco: ["21.4%", "53.2%", "31.4%", "34.1%"], src: "/assets/flow/03.webp", alt: "Agente adicionado ao canvas" },
+  { legenda: "A tarefa: o que deve ser feito.", foco: ["63.9%", "52.9%", "31.6%", "21.1%"], src: "/assets/flow/04.webp", alt: "Tarefa adicionada ao canvas" },
+  { legenda: "Gatilho ligado na tarefa.", foco: null, src: "/assets/flow/05.webp", alt: "Gatilho ligado na tarefa" },
+  { legenda: "Tarefa ligada no agente — squad montado.", foco: null, src: "/assets/flow/06.webp", alt: "Tarefa ligada no agente" },
 ]
 
 export type Passo = { f: string | null; rotulo: string; texto: string }
@@ -100,19 +100,19 @@ export const FERRAMENTAS: Ferramenta[] = [
   { nome: "WhatsApp", slug: "whatsapp" },
   { nome: "Telegram", slug: "telegram" },
   { nome: "Discord", slug: "discord" },
-  { nome: "Slack", arquivo: "/assets/logos/slack.png" },
-  { nome: "Teams", arquivo: "/assets/logos/teams.png" },
-  { nome: "LinkedIn", arquivo: "/assets/logos/linkedin.png" },
+  { nome: "Slack", arquivo: "/assets/logos/slack.webp" },
+  { nome: "Teams", arquivo: "/assets/logos/teams.webp" },
+  { nome: "LinkedIn", arquivo: "/assets/logos/linkedin.webp" },
   { nome: "Gmail", slug: "gmail" },
-  { nome: "Outlook", arquivo: "/assets/logos/outlook.png" },
+  { nome: "Outlook", arquivo: "/assets/logos/outlook.webp" },
   { nome: "Google Calendar", slug: "googlecalendar" },
-  { nome: "Excel", arquivo: "/assets/logos/excel.png" },
+  { nome: "Excel", arquivo: "/assets/logos/excel.webp" },
   { nome: "Google Sheets", slug: "googlesheets" },
   { nome: "HubSpot", slug: "hubspot" },
-  { nome: "Pipedrive", arquivo: "/assets/logos/pipedrive.png", largo: true, placaClara: true },
+  { nome: "Pipedrive", arquivo: "/assets/logos/pipedrive.webp", largo: true, placaClara: true },
   { nome: "PostgreSQL", slug: "postgresql" },
   { nome: "MySQL", slug: "mysql" },
-  { nome: "Oracle", arquivo: "/assets/logos/oracle.png", largo: true, placaClara: true },
+  { nome: "Oracle", arquivo: "/assets/logos/oracle.webp", largo: true, placaClara: true },
   { nome: "seu sistema", slug: null },
 ]
 

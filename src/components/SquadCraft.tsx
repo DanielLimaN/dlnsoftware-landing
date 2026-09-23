@@ -73,7 +73,7 @@ export function SquadCraft() {
           <div>
             <Eyebrow className="text-green">Produto próprio</Eyebrow>
             <img
-              src="/assets/squadcraft-logo.png"
+              src="/assets/squadcraft-logo.webp"
               alt="SquadCraft"
               width={1799}
               height={252}

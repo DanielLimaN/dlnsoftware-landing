@@ -27,7 +27,7 @@ export function Logo({ size = "md" }: { size?: "md" | "sm" }) {
   return (
     <span className={`flex items-center ${md ? "gap-[11px]" : "gap-2.5"}`}>
       <img
-        src="/assets/dln-icon.png"
+        src="/assets/dln-icon.webp"
         alt={md ? "DLN Software" : ""}
         width={128}
         height={128}

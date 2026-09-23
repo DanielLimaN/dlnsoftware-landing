@@ -41,7 +41,7 @@ export function Method() {
             </p>
             <div className="flex flex-wrap items-center gap-[18px] mt-[34px] pt-[26px] border-t border-line">
               <img
-                src="/assets/daniel-avatar.png"
+                src="/assets/daniel-avatar.webp"
                 alt="Daniel Lima do Nascimento, que conduz cada diagnóstico"
                 width={132}
                 height={132}

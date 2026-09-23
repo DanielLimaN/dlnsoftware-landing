@@ -34,7 +34,7 @@ export function Gente() {
             height={576}
             loading="lazy"
             decoding="async"
-            src="/assets/especialista-daniel.png"
+            src="/assets/especialista-daniel.webp"
             alt="Daniel, especialista SquadCraft, em sessão de implantação"
             className="w-full h-auto block grayscale contrast-[1.08]"
           />
