@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sc-ink: #15181C;
+  --color-sc-paper: #F7F8FA;
+  --color-sc-green: #12B86B;
+  --color-sc-green-deep: #0E7A49;
+  --color-sc-green-ink: #04160D;
+  --color-sc-violet: #7C4DFF;
+  --color-sc-line: #E4E7EC;
+  --color-sc-line-2: #D5DAE0;
+  --color-sc-gray: #6B7076;
+  --color-sc-gray-2: #4A4F55;
+  --color-sc-chip: #F4F5F7;
+  --font-sans: 'Archivo', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-sc-paper);
+    color: var(--color-sc-ink);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.5;
+    text-wrap: pretty;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: var(--color-sc-green-deep);
+  }
+
+  a:hover {
+    color: var(--color-sc-ink);
+  }
+
+  ::selection {
+    background: var(--color-sc-green);
+    color: #FFFFFF;
+  }
+}
+
+@keyframes arMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes arBlink { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
+@keyframes arRise { from { transform: translateY(0.42em) rotate(-2deg); opacity: 0; } to { transform: translateY(0) rotate(0); opacity: 1; } }
+@keyframes arWipe { from { clip-path: inset(0 100% 0 0); transform: translateX(-0.06em); } to { clip-path: inset(0 0 0 0); transform: translateX(0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; }
+}

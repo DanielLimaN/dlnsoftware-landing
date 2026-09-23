@@ -1,435 +1,172 @@
-import {
-  ArrowRight,
-  Check,
-  CheckCircle2,
-  ChevronLeft,
-  ChevronRight,
-  Megaphone,
-  MessageCircle,
-  Settings2,
-  Sparkles,
-  Wallet,
-  Workflow,
-} from "lucide-react"
-import { useState } from "react"
-import { openChat } from "../lib/chat"
+import { Eyebrow, SQUADCRAFT_URL } from "./ui"
 
-const portfolio = [
+const teams = [
   {
-    name: "SquadCraft",
-    badge: "PRODUTO",
-    desc: "Monte times de agentes de IA para qualquer área — atendimento, marketing, financeiro — em fluxos visuais, sem código.",
-    link: "Conhecer o produto",
-    icon: Workflow,
-    accent: true,
+    tag: "atendimento",
+    text: "Confirma agendamento, responde dúvida recorrente e passa para uma pessoa quando sai do script.",
   },
   {
-    name: "Consultoria sob medida",
-    badge: "SERVIÇO",
-    desc: "Engenharia de software, melhoria de processos e transformação digital para a sua operação.",
-    link: "Falar com especialista",
-    icon: Settings2,
-    accent: true,
+    tag: "cobrança",
+    text: "Persegue pendência com régua de tom e horário, registra cada tentativa e avisa quem precisa decidir.",
   },
   {
-    name: "Novos produtos",
-    badge: "EM BREVE",
-    desc: "Estamos construindo mais soluções para times de tecnologia. Fique de olho no que vem por aí.",
-    link: "Acompanhar novidades",
-    icon: Sparkles,
-    accent: false,
-  },
-]
-
-const showcaseBullets = [
-  "Times de IA para atendimento, marketing e financeiro",
-  "A primeira equipe é configurada por um especialista, junto com você",
-  "Implantação inclusa: você não configura nada",
-  "Depois monte quantas equipes quiser e chame reforço quando precisar",
-]
-
-const capabilities = [
-  {
-    title: "Atendimento",
-    desc: "Confirma agendamentos e responde o que sempre repete",
-    icon: MessageCircle,
-  },
-  {
-    title: "Marketing",
-    desc: "Lembra quem não voltou e avisa das novidades",
-    icon: Megaphone,
-  },
-  {
-    title: "Financeiro",
-    desc: "Cobra pendências e organiza os recebimentos",
-    icon: Wallet,
+    tag: "pós-venda e marketing",
+    text: "Lembra quem parou de comprar, puxa follow-up esquecido e devolve a lista do que merece atenção humana.",
   },
 ]
 
 const plans = [
   {
-    name: "ESSENCIAL",
+    name: "Essencial",
+    audience: "uma equipe, um processo",
     price: "R$ 397",
-    tag: "Resolve o atendimento",
+    perMonth: true,
     features: [
-      { text: "Primeira equipe montada com você", highlight: true },
-      "1 equipe ativa",
-      "500 execuções por mês",
-      "1 revisão no primeiro mês",
-      "Suporte por e-mail, 48h",
+      "1 equipe de agentes",
+      "1 número de WhatsApp",
+      "configuração inicial com especialista",
+      "suporte por e-mail",
     ],
     cta: "Começar",
-    featured: false,
+    href: `${SQUADCRAFT_URL}#planos`,
   },
   {
-    name: "PROFISSIONAL",
-    price: "R$ 897",
-    tag: "Atende, divulga e cobra",
-    features: [
-      { text: "Primeira equipe montada com você", highlight: true },
-      "4 equipes ativas",
-      "2.000 execuções por mês",
-      "1 nova equipe montada por trimestre",
-      "Suporte no WhatsApp, 24h",
-    ],
-    cta: "Começar",
+    name: "Operação",
+    audience: "várias áreas trabalhando juntas",
+    price: "R$ 1.197",
+    perMonth: true,
     featured: true,
-  },
-  {
-    name: "ESCALA",
-    price: "R$ 2.500",
-    tag: "Operação inteira coberta",
     features: [
-      { text: "Primeira equipe montada com você", highlight: true },
-      "12 equipes ativas",
-      "6.000 execuções por mês",
-      "1 nova equipe montada por mês",
-      "Suporte no WhatsApp, 4h",
+      "até 4 equipes de agentes",
+      "integração com seu ERP ou CRM",
+      "relatórios de atendimento e cobrança",
+      "revisão mensal com especialista",
     ],
     cta: "Falar com especialista",
-    featured: false,
+    href: `${SQUADCRAFT_URL}#falar`,
+  },
+  {
+    name: "Sob medida",
+    audience: "volume alto ou regra crítica",
+    price: "sob consulta",
+    features: [
+      "equipes ilimitadas",
+      "agentes treinados no seu processo",
+      "integrações e antifraude sob demanda",
+      "acordo de nível de serviço",
+    ],
+    cta: "Pedir proposta",
+    href: `${SQUADCRAFT_URL}#falar`,
   },
 ]
 
-const showcaseImages = [
-  "/squadcraft-ui.png",
-  "/squadcraft-ui2.png",
-  "/squadcraft-ui3.png",
-  "/squadcraft-ui4.png",
-  "/squadcraft-ui5.png",
-]
+const ctaPrimary =
+  "bg-green text-green-ink font-semibold rounded-full transition-colors hover:bg-green-hi cursor-pointer border-0"
+const ctaOutline =
+  "bg-transparent border border-night-line-2 text-frost font-medium rounded-full transition-colors hover:border-green cursor-pointer"
 
 export function SquadCraft() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-
-  const nextImage = () => setCurrentImageIndex((i) => (i + 1) % showcaseImages.length)
-  const prevImage = () => setCurrentImageIndex((i) => (i - 1 + showcaseImages.length) % showcaseImages.length)
-
   return (
-    <section
-      id="produtos"
-      className="relative flex flex-col items-center px-8 py-24 gap-12 bg-ink"
-    >
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-[3px] bg-signal rounded-full" />
-
-      {/* Header */}
-      <div className="flex flex-col items-center gap-5 w-full">
-        <span className="text-xs font-semibold tracking-[0.2em] text-signal">
-          PRODUTOS & SOLUÇÕES
-        </span>
-        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-bone text-center max-w-[720px]">
-          Um portfólio que cresce com a sua operação
-        </h2>
-        <p className="text-base text-muted text-center leading-relaxed max-w-[660px]">
-          Do SquadCraft à consultoria de tecnologia sob medida — construímos e
-          reunimos soluções para acelerar times e operações. E o portfólio está
-          só começando.
-        </p>
-      </div>
-
-      {/* Portfolio grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-[1280px]">
-        {portfolio.map((card) => (
-          <PortfolioCard key={card.name} {...card} />
-        ))}
-      </div>
-
-      {/* Spotlight */}
-      <div className="flex flex-col items-center gap-2.5 w-full">
-        <span className="text-xs font-semibold tracking-[0.2em] text-signal">
-          PRODUTO EM DESTAQUE
-        </span>
-        <img
-          src="/squadcraft-logo.png"
-          alt="SquadCraft"
-          className="h-10 max-w-[280px] object-contain"
-        />
-      </div>
-
-      {/* Showcase */}
-      <div
-        id="squadcraft"
-        className="w-full max-w-[1280px] rounded-[20px] border border-card-border bg-panel p-6 sm:p-12 flex flex-col gap-10"
-      >
-        <div className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-12 w-full">
-          <div className="flex flex-col gap-6 max-w-[600px]">
-            <h3 className="text-2xl sm:text-3xl font-bold leading-[1.25] tracking-tight text-bone">
-              Sua equipe de IA montada com você, não uma tela em branco
-            </h3>
-            <button
-              onClick={openChat}
-              className="mt-2 inline-flex w-fit items-center gap-2 rounded-[10px] bg-signal px-6 py-3.5 text-[15px] font-bold text-ink hover:opacity-90 transition-opacity cursor-pointer border-0"
-            >
-              Agendar conversa de 30 min
-              <ArrowRight size={16} className="text-ink" />
-            </button>
-          </div>
-          
-          <ul className="flex flex-col gap-3.5 flex-1 max-w-[500px]">
-            {showcaseBullets.map((bullet) => (
-              <li key={bullet} className="flex items-start gap-3">
-                <span className="flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-[11px] bg-[#5EEAD422] mt-0.5">
-                  <Check size={13} className="text-signal" />
-                </span>
-                <span className="text-[15px] text-slate leading-relaxed">{bullet}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="w-full mt-4 overflow-hidden rounded-xl border border-card-border bg-card shadow-[0_0_80px_-18px_rgba(94,234,212,0.35)]">
-          <div className="relative w-full overflow-hidden bg-ink group">
-            <img 
-              src={showcaseImages[currentImageIndex]} 
-              alt={`SquadCraft Studio Tela ${currentImageIndex + 1}`} 
-              className="w-full h-auto block opacity-95 transition-opacity duration-300" 
+    <section id="squadcraft" className="max-w-[1240px] mx-auto mt-[104px] px-8">
+      <div className="bg-night text-frost rounded-md p-[clamp(32px,4.4vw,60px)]">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-12 items-start">
+          <div>
+            <Eyebrow className="text-green">Produto próprio</Eyebrow>
+            <img
+              src="/assets/squadcraft-logo.png"
+              alt="SquadCraft"
+              width={1799}
+              height={252}
+              loading="lazy"
+              decoding="async"
+              className="w-full max-w-[280px] h-auto block mt-5"
             />
-            <div className="pointer-events-none absolute inset-0 z-10 shadow-[inset_0_0_120px_rgba(11,15,26,0.6)]" />
-
-            {/* Carousel Controls */}
-            <button 
-              onClick={prevImage}
-              aria-label="Imagem anterior"
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-ink/70 text-bone hover:bg-signal hover:text-ink transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
-            >
-              <ChevronLeft size={28} />
-            </button>
-            <button 
-              onClick={nextImage}
-              aria-label="Próxima imagem"
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-ink/70 text-bone hover:bg-signal hover:text-ink transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
-            >
-              <ChevronRight size={28} />
-            </button>
-
-            {/* Indicator Dots */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2.5">
-              {showcaseImages.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentImageIndex(idx)}
-                  aria-label={`Ir para imagem ${idx + 1}`}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    idx === currentImageIndex ? "w-8 bg-signal" : "w-2.5 bg-bone/40 hover:bg-bone"
-                  }`}
-                />
-              ))}
+            <h2 className="font-serif font-normal text-[clamp(30px,3.8vw,46px)] leading-[1.06] tracking-[-0.02em] mt-6 mb-0 max-w-[26ch]">
+              Equipes de agentes de IA montadas com você, não uma tela em branco.
+            </h2>
+            <p className="text-mist mt-5 mb-0 text-[17.5px] max-w-[48ch]">
+              A maior parte das ferramentas de IA entrega um chat vazio e a conta de descobrir o que
+              fazer com ele. No SquadCraft, um especialista nosso configura a primeira equipe junto
+              com você, a partir do processo que já mapeamos — e ela entra em operação conectada ao
+              WhatsApp que a empresa já usa.
+            </p>
+            <div className="flex flex-wrap items-center gap-[18px] mt-8">
+              <a href={SQUADCRAFT_URL} className={`${ctaPrimary} no-underline text-[17px] px-7 py-[15px] hover:text-green-ink`}>
+                Conhecer o SquadCraft →
+              </a>
+              <span className="font-mono text-[13px] text-mist-2">
+                a partir de R$ 397/mês · implantação inclusa
+              </span>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Capabilities */}
-      <div className="flex flex-col items-center gap-7 w-full max-w-[1280px]">
-        <h3 className="text-[28px] font-bold tracking-tight text-bone text-center">
-          O que sua equipe de IA faz
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-          {capabilities.map((cap) => (
-            <div
-              key={cap.title}
-              className="flex flex-col gap-3.5 p-7 bg-card border border-card-border rounded-2xl"
-            >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#5EEAD422]">
-                <cap.icon size={24} className="text-signal" />
+          <div className="grid gap-px bg-night-line border border-night-line rounded-md overflow-hidden">
+            {teams.map((t) => (
+              <div key={t.tag} className="bg-night-2 px-[26px] py-6">
+                <div className="font-mono text-[11.5px] text-green mb-2">{t.tag}</div>
+                <div className="text-[16.5px]">{t.text}</div>
               </div>
-              <h4 className="text-lg font-bold text-bone">{cap.title}</h4>
-              <p className="text-sm text-muted leading-relaxed">{cap.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Plans */}
-      <div className="flex flex-col items-center gap-8 w-full max-w-[1280px]">
-        <div className="flex flex-col items-center gap-3 w-full">
-          <h3 className="text-3xl font-bold tracking-tight text-bone text-center">
-            Escolha o tamanho da sua equipe
-          </h3>
-          <p className="text-base text-muted text-center leading-relaxed max-w-[680px]">
-            1 equipe = até 3 agentes, 1 canal conectado e 1 rotina agendada.
-            Implantação inclusa nos planos anuais.
-          </p>
+            ))}
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full items-stretch">
-          {plans.map((plan) => (
-            <PlanCard key={plan.name} {...plan} />
-          ))}
+        <div className="mt-11 pt-10 border-t border-night-line">
+          <div className="flex flex-wrap items-baseline justify-between gap-4">
+            <h3 className="font-serif font-normal text-[clamp(26px,3vw,34px)] leading-[1.1] m-0">Planos</h3>
+            <span className="font-mono text-[12.5px] text-mist-2">
+              mensal, sem fidelidade · implantação inclusa em todos
+            </span>
+          </div>
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,250px),1fr))] gap-[18px] mt-7">
+            {plans.map((p) => (
+              <div
+                key={p.name}
+                className={`relative rounded-lg p-[30px] flex flex-col gap-[18px] border ${
+                  p.featured ? "bg-night-green border-green" : "bg-night-2 border-night-line"
+                }`}
+              >
+                {p.featured && (
+                  <span className="absolute -top-[11px] left-[30px] bg-green text-green-ink font-mono text-[10.5px] tracking-[0.12em] uppercase px-2.5 py-1 rounded-full">
+                    mais contratado
+                  </span>
+                )}
+                <div>
+                  <div className="text-[17px] font-semibold">{p.name}</div>
+                  <div className="text-mist-2 text-[15px] mt-1.5">{p.audience}</div>
+                </div>
+                <div className="font-serif text-[42px] leading-none">
+                  {p.price}
+                  {p.perMonth && <span className="font-sans text-base text-mist-2">/mês</span>}
+                </div>
+                <div className="flex flex-col gap-2.5 text-base text-frost-2">
+                  {p.features.map((f) => (
+                    <span key={f} className="flex gap-[9px]">
+                      <span className="text-green">✓</span>
+                      {f}
+                    </span>
+                  ))}
+                </div>
+                <a
+                  href={p.href}
+                  className={`mt-auto text-center no-underline text-base p-3.5 ${
+                    p.featured ? `${ctaPrimary} text-green-ink hover:text-green-ink` : `${ctaOutline} text-frost hover:text-frost`
+                  }`}
+                >
+                  {p.cta}
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="w-full rounded-2xl border border-anchor-border bg-anchor p-5 sm:p-7">
-          <p className="text-[15px] text-slate leading-[1.55]">
-            Uma agência cobra a partir de R$ 3.000 só de setup. Aqui a
-            implantação está inclusa no plano anual. Prefere mensal sem
-            contrato? Taxa de setup de R$ 1.500, cancela quando quiser.
-          </p>
-        </div>
-
-        <p className="text-xs text-subtle text-center leading-relaxed max-w-[900px]">
-          Execuções extras: R$ 0,20 cada, com aviso em 80% do limite ·
-          Equipe adicional montada com auxílio: R$ 690 · Ajustes extras: R$
-          150 · Integrações personalizadas orçadas caso a caso
+        <p className="font-mono text-[12.5px] text-mist-2 mt-[34px] mb-0 pt-6 border-t border-night-line max-w-[80ch] leading-[1.7]">
+          Consultoria e SquadCraft são coisas separadas: a primeira é projeto sob medida, orçado por
+          escopo; a segunda é produto por assinatura. Às vezes o diagnóstico conclui que você só
+          precisa do segundo — e aí a gente diz isso.{" "}
+          <a href={SQUADCRAFT_URL} className="text-green hover:text-green">
+            Ver tudo sobre o SquadCraft →
+          </a>
         </p>
       </div>
     </section>
-  )
-}
-
-function PortfolioCard({
-  name,
-  badge,
-  desc,
-  link,
-  icon: Icon,
-  accent,
-}: (typeof portfolio)[number]) {
-  return (
-    <div className="flex h-full flex-col justify-between gap-6 rounded-2xl border border-card-border bg-card p-8">
-      <div className="flex flex-col gap-[18px]">
-        <div className="flex items-center justify-between">
-          <div
-            className={`flex h-12 w-12 items-center justify-center rounded-xl ${
-              accent ? "bg-[#5EEAD422]" : "bg-[#64748B22]"
-            }`}
-          >
-            <Icon size={24} className={accent ? "text-signal" : "text-subtle"} />
-          </div>
-          <span
-            className={`rounded-full px-3 py-1 text-[11px] font-bold tracking-wider ${
-              accent
-                ? "bg-[#5EEAD422] text-signal"
-                : "bg-[#64748B22] text-subtle"
-            }`}
-          >
-            {badge}
-          </span>
-        </div>
-        {name === "SquadCraft" ? (
-          <img
-            src="/squadcraft-logo.png"
-            alt="SquadCraft"
-            className="h-7 w-auto object-contain object-left mt-1 mb-0.5"
-          />
-        ) : (
-          <h3
-            className={`text-[22px] font-bold tracking-tight ${
-              accent ? "text-bone" : "text-slate"
-            }`}
-          >
-            {name}
-          </h3>
-        )}
-        <p className="text-sm text-muted leading-relaxed">{desc}</p>
-      </div>
-      {name === "SquadCraft" ? (
-        <a
-          href="#squadcraft"
-          className={`inline-flex items-center gap-2 text-sm font-semibold no-underline ${
-            accent ? "text-signal hover:text-bone" : "text-subtle hover:text-slate"
-          } transition-colors`}
-        >
-          {link}
-          <ArrowRight size={15} />
-        </a>
-      ) : (
-        <button
-          onClick={openChat}
-          className={`inline-flex items-center gap-2 text-sm font-semibold bg-transparent border-0 p-0 cursor-pointer ${
-            accent ? "text-signal hover:text-bone" : "text-subtle hover:text-slate"
-          } transition-colors`}
-        >
-          {link}
-          <ArrowRight size={15} />
-        </button>
-      )}
-    </div>
-  )
-}
-
-
-function PlanCard({
-  name,
-  price,
-  tag,
-  features,
-  cta,
-  featured,
-}: (typeof plans)[number]) {
-  return (
-    <div
-      className={`flex h-full flex-col gap-4 rounded-2xl border bg-card p-7 ${
-        featured ? "border-signal border-2" : "border-card-border"
-      }`}
-    >
-      {featured && (
-        <span className="w-fit rounded-full bg-signal px-[11px] py-[5px] text-[11px] font-bold tracking-wide text-ink">
-          MAIS ESCOLHIDO
-        </span>
-      )}
-      <span className="text-xs font-bold tracking-widest text-subtle">
-        {name}
-      </span>
-      <div className="flex items-end gap-1.5">
-        <span className="text-[34px] font-bold tracking-tight text-bone">
-          {price}
-        </span>
-        <span className="text-[15px] text-subtle">/mês</span>
-      </div>
-      <span className="text-[15px] text-muted">{tag}</span>
-      <div className="h-px bg-card-border" />
-      <ul className="flex flex-col gap-3 flex-1">
-        {features.map((feature) => {
-          const text = typeof feature === "string" ? feature : feature.text
-          const highlight = typeof feature !== "string" && feature.highlight
-          return (
-            <li key={text} className="flex items-center gap-2.5">
-              {highlight ? (
-                <CheckCircle2 size={16} className="shrink-0 text-signal" />
-              ) : (
-                <Check size={16} className="shrink-0 text-signal" />
-              )}
-              <span
-                className={`text-sm leading-[1.4] ${
-                  highlight ? "font-semibold text-signal" : "text-muted"
-                }`}
-              >
-                {text}
-              </span>
-            </li>
-          )
-        })}
-      </ul>
-      <button
-        onClick={openChat}
-        className={`mt-auto flex w-full items-center justify-center rounded-[10px] px-5 py-3.5 text-[15px] cursor-pointer ${
-          featured
-            ? "border-0 bg-signal font-bold text-ink hover:opacity-90 transition-opacity"
-            : "border border-card-border font-medium text-bone hover:bg-card-hover transition-colors"
-        }`}
-      >
-        {cta}
-      </button>
-    </div>
   )
 }

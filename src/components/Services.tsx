@@ -1,66 +1,39 @@
-import { FlowIcon } from "./FlowMark"
+import { Eyebrow, SQUADCRAFT_URL } from "./ui"
 
 const services = [
   {
-    title: "Consultoria de Processos",
-    items: [
-      "Mapeamento de fluxos operacionais",
-      "Análise de pontos de dor e gargalos",
-      "Otimização de processos existentes",
-      "KPIs e métricas de performance",
-    ],
+    title: "Consultoria de processos",
+    text: "Mapeamento com quem executa, gargalos nomeados, régua de decisão onde hoje existe planilha. O entregável é um plano com preço, não um relatório.",
   },
   {
-    title: "Engenharia de Software",
-    items: [
-      "Desenvolvimento web e mobile sob medida",
-      "Arquitetura escalável e resiliente",
-      "APIs e integrações de sistemas",
-      "Code review e qualidade de código",
-    ],
+    title: "Engenharia de software",
+    text: "Sistemas sob medida, integrações com bureaus e antifraude, modernização de legado por partes — sem parar a operação. Código e dados no seu nome.",
   },
   {
-    title: "Transformação Digital",
-    items: [
-      "Automação de processos manuais",
-      "Modernização de sistemas legados",
-      "Cloud migration e infraestrutura",
-      "Data analytics e dashboards",
-    ],
+    title: "SquadCraft · agentes de IA",
+    text: "Equipes de agentes para atendimento, cobrança e follow-up, montadas por um especialista nosso e conectadas ao WhatsApp que você já usa.",
+    link: { label: "Ver a página do SquadCraft →", href: SQUADCRAFT_URL },
   },
 ]
 
 export function Services() {
   return (
-    <section
-      id="servicos"
-      className="relative flex flex-col items-center px-8 py-24 gap-12 bg-ink-light"
-    >
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-0.5 bg-signal rounded-full" />
-      <span className="text-xs font-semibold tracking-[0.2em] text-signal">
-        O QUE FAZEMOS
-      </span>
-      <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-bone text-center max-w-[700px]">
-        Soluções completas de engenharia de software para o seu negócio
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-[1280px]">
-        {services.map((service) => (
-          <div
-            key={service.title}
-            className="flex flex-col gap-3 p-8 sm:p-9 bg-card border border-card-border rounded-2xl"
-          >
-            <h3 className="text-xl font-bold text-bone">{service.title}</h3>
-            <ul className="flex flex-col gap-1.5">
-              {service.items.map((item) => (
-                <li
-                  key={item}
-                  className="text-sm text-muted leading-relaxed"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <FlowIcon size={32} className="mt-auto" />
+    <section id="servicos" className="max-w-[1240px] mx-auto mt-[104px] px-8">
+      <Eyebrow>O que fazemos</Eyebrow>
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,270px),1fr))] gap-11 mt-10">
+        {services.map((s) => (
+          <div key={s.title}>
+            <div className="h-[3px] w-11 bg-blue mb-[22px]" />
+            <h3 className="font-serif font-normal text-[29px] leading-[1.1] m-0">{s.title}</h3>
+            <p className="text-ink-2 mt-3.5 mb-0 text-[17px]">{s.text}</p>
+            {s.link && (
+              <a
+                href={s.link.href}
+                className="inline-block mt-3.5 text-base font-medium text-blue-deep no-underline border-b border-blue-soft pb-0.5 hover:border-blue-deep hover:text-blue-deep"
+              >
+                {s.link.label}
+              </a>
+            )}
           </div>
         ))}
       </div>

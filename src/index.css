@@ -1,68 +1,74 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #0B0F1A;
-  --color-ink-light: #0A0E17;
-  --color-bone: #F8FAFC;
-  --color-signal: #5EEAD4;
-  --color-flow: #3B82F6;
-  --color-muted: #94A3B8;
-  --color-subtle: #64748B;
-  --color-card: #111827;
-  --color-card-border: #1F2937;
-  --color-card-hover: #1a2332;
-  --color-input-bg: #0B0F1A;
-  --color-panel: #0E1526;
-  --color-slate: #CBD5E1;
-  --color-faint: #475569;
-  --color-anchor: #0E1B22;
-  --color-anchor-border: #1C2E33;
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --color-paper: #F7F5F2;
+  --color-paper-card: #FFFDFA;
+  --color-paper-2: #EFEAE0;
+  --color-line: #E3DED5;
+  --color-line-2: #DDD7CC;
+  --color-line-3: #CFC8BC;
+  --color-ink: #14171A;
+  --color-ink-2: #4A5058;
+  --color-ink-3: #6B7076;
+  --color-ink-4: #9A958C;
+  --color-night: #0B0F19;
+  --color-night-2: #121826;
+  --color-night-green: #10201A;
+  --color-night-line: #232B3D;
+  --color-night-line-2: #38425A;
+  --color-mist: #AFBBCF;
+  --color-mist-2: #8C9AB2;
+  --color-frost: #F2F5FA;
+  --color-frost-2: #DDE4EF;
+  --color-blue: #2F6BFF;
+  --color-blue-deep: #2453C4;
+  --color-blue-soft: #C7D6FF;
+  --color-blue-pale: #9DBCFF;
+  --color-green: #12B86B;
+  --color-green-hi: #17D179;
+  --color-green-ink: #04160D;
+  --font-sans: 'Instrument Sans', system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 }
 
-.dot-grid {
-  background-color: #0E1526;
-  background-image: radial-gradient(circle, rgba(107, 120, 140, 0.3) 1px, transparent 1.6px);
-  background-size: 22px 22px;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 18px;
+    line-height: 1.6;
+    text-wrap: pretty;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+    color: var(--color-ink);
+  }
+
+  a:hover {
+    color: var(--color-blue);
+  }
+
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
 }
 
-.scanlines {
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent 0,
-    transparent 2px,
-    rgba(0, 0, 0, 0.14) 2px,
-    rgba(0, 0, 0, 0.14) 4px
-  );
-}
+@keyframes dlnFlow { from { stroke-dashoffset: 260; } to { stroke-dashoffset: 0; } }
+@keyframes dlnDash { to { stroke-dashoffset: -140; } }
+@keyframes dlnBlip { 0%, 100% { opacity: .45; r: 7; } 50% { opacity: 1; r: 9; } }
+@keyframes dlnRuler { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+@keyframes dlnOut { 0% { opacity: .3; transform: scale(.85); } 55% { opacity: 1; transform: scale(1); } 100% { opacity: .3; transform: scale(.85); } }
 
-* {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  background: var(--color-ink);
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-@keyframes wave-flow {
-  0% { stroke-dashoffset: 120; }
-  100% { stroke-dashoffset: 0; }
-}
-
-@keyframes pulse-node {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.08); opacity: 0.85; }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0; transform: scale(1); }
-  50% { opacity: 0.2; transform: scale(1.15); }
-}
-
-.animate-wave {
-  animation: wave-flow 10s linear infinite;
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; }
 }
