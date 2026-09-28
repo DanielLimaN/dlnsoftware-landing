@@ -20,7 +20,7 @@ export function initAnalytics(site: "dln" | "squadcraft") {
     // No feature flags on these pages: avoids a /flags call before the visitor has consented.
     advanced_disable_flags: true,
   })
-  posthog.register({ site })
+  posthog.register({ site, produto: "landing" })
   ready = true
   document.addEventListener("click", onClick, true)
 }

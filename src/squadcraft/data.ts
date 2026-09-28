@@ -3,17 +3,6 @@ export const WHATSAPP_LABEL = "(19) 98911-1132"
 export const EMAIL = "daniel@dlnsoftware.com.br"
 export const LINKEDIN_URL = "https://www.linkedin.com/company/dln-software"
 
-export type Foco = [string, string, string, string]
-
-export const QUADROS: { legenda: string; foco: Foco | null; src: string; alt: string }[] = [
-  { legenda: "Na biblioteca: o gatilho.", foco: ["1.2%", "53.5%", "12.6%", "5.2%"], src: "/assets/flow/01.webp", alt: "Canvas vazio com a biblioteca do Studio" },
-  { legenda: "Mensagem recebida no WhatsApp.", foco: ["41.8%", "12.4%", "24.6%", "28.4%"], src: "/assets/flow/02.webp", alt: "Gatilho do WhatsApp no canvas" },
-  { legenda: "Um agente entra no canvas.", foco: ["21.4%", "53.2%", "31.4%", "34.1%"], src: "/assets/flow/03.webp", alt: "Agente adicionado ao canvas" },
-  { legenda: "A tarefa: o que deve ser feito.", foco: ["63.9%", "52.9%", "31.6%", "21.1%"], src: "/assets/flow/04.webp", alt: "Tarefa adicionada ao canvas" },
-  { legenda: "Gatilho ligado na tarefa.", foco: null, src: "/assets/flow/05.webp", alt: "Gatilho ligado na tarefa" },
-  { legenda: "Tarefa ligada no agente — squad montado.", foco: null, src: "/assets/flow/06.webp", alt: "Tarefa ligada no agente" },
-]
-
 export type Passo = { f: string | null; rotulo: string; texto: string }
 
 export const ROTINAS: {
@@ -86,6 +75,17 @@ export const ROTINAS: {
     ],
     resultado: "A maioria das dúvidas resolvida na hora; o time só pega o que precisa de gente.",
   },
+  {
+    n: "07", titulo: "Emissão de notas fiscais", gatilho: "venda fechada ou serviço concluído", entrega: "nota emitida e enviada ao cliente",
+    passos: [
+      { f: "HubSpot", rotulo: "gatilho", texto: "Negócio marcado como ganho, ou serviço dado como concluído." },
+      { f: null, rotulo: "squad", texto: "Confere dados do cliente, itens, valores e a natureza da operação." },
+      { f: "Omie", rotulo: "emite", texto: "Emite a NF-e ou NFS-e no seu ERP, com o boleto ou Pix junto." },
+      { f: "Gmail", rotulo: "envia", texto: "Manda o PDF e o XML para o cliente e para a contabilidade." },
+      { f: "Teams", rotulo: "escala", texto: "Dado faltando ou rejeição da prefeitura vai para o financeiro." },
+    ],
+    resultado: "Nota sai no mesmo dia da venda, sem ninguém redigitando pedido no ERP.",
+  },
 ]
 
 export const PLANOS = [
@@ -109,6 +109,7 @@ export const FERRAMENTAS: Ferramenta[] = [
   { nome: "Excel", arquivo: "/assets/logos/excel.webp" },
   { nome: "Google Sheets", slug: "googlesheets" },
   { nome: "HubSpot", slug: "hubspot" },
+  { nome: "Omie", arquivo: "https://www.google.com/s2/favicons?domain=omie.com.br&sz=128" },
   { nome: "Pipedrive", arquivo: "/assets/logos/pipedrive.webp", largo: true, placaClara: true },
   { nome: "PostgreSQL", slug: "postgresql" },
   { nome: "MySQL", slug: "mysql" },
