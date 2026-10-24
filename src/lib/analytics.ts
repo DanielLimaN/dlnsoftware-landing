@@ -7,7 +7,9 @@ export type Consent = "granted" | "denied" | "pending"
 
 let ready = false
 
-// Nothing is captured and nothing is stored until the visitor accepts the consent banner.
+// Until the visitor accepts the banner nothing is stored on the device: visits are counted
+// cookieless (anonymous hash computed on PostHog's servers), so ad traffic that never answers
+// the banner still shows up. Requires "cookieless server hash mode" enabled in the project.
 export function initAnalytics(site: "dln" | "squadcraft") {
   if (ready || !KEY) return
   posthog.init(KEY, {
@@ -15,6 +17,7 @@ export function initAnalytics(site: "dln" | "squadcraft") {
     defaults: "2025-05-24",
     opt_out_capturing_by_default: true,
     opt_out_persistence_by_default: true,
+    cookieless_mode: "on_reject",
     person_profiles: "identified_only",
     disable_session_recording: true,
     // No feature flags on these pages: avoids a /flags call before the visitor has consented.

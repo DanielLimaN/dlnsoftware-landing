@@ -38,7 +38,8 @@ export function ConsentBanner({ variant }: { variant: keyof typeof styles }) {
       <p className="m-0 text-[15px] font-semibold leading-snug">Usamos cookies de análise</p>
       <p className={`mt-2 mb-0 text-sm leading-relaxed ${s.text}`}>
         Com a sua permissão, medimos visitas e cliques com o PostHog para entender o que funciona no
-        site. Nada é coletado se você recusar, e dá para mudar a escolha no rodapé.
+        site. Se você recusar, só contamos a visita de forma anônima, sem cookies e sem identificar
+        você. Dá para mudar a escolha no rodapé.
       </p>
       <div className="flex flex-wrap gap-2.5 mt-4">
         <button type="button" onClick={() => choose(true)} className={`cursor-pointer px-5 py-2.5 transition-colors ${s.accept}`}>
