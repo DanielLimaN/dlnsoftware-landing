@@ -54,3 +54,47 @@ export const FAQ = [
   { p: "Preciso entender de tecnologia?", r: "Não. Um especialista monta tudo com você." },
   { p: "Quanto tempo para começar?", r: "Em cerca de uma semana a primeira squad está no ar." },
 ]
+
+// Prices and limits mirror PLANOS in ../data.ts (main landing): change both together.
+export const PLANOS_6X1 = [
+  {
+    selo: "ESSENCIAL",
+    preco: "R$ 397",
+    periodo: "/mês",
+    exemplo: "Squad de comunicação da escala",
+    inclui: [
+      "Comunica a nova escala a cada pessoa do time",
+      "Responde dúvidas sobre folgas e horários no WhatsApp",
+      "Avisa o time quando a escala muda",
+    ],
+    rodape: "1 squad · 1 número de WhatsApp",
+    destaque: false,
+  },
+  {
+    selo: "OPERAÇÃO · MAIS INDICADO",
+    preco: "R$ 1.197",
+    periodo: "/mês",
+    exemplo: "Administrativo da transição",
+    inclui: [
+      "Tudo do exemplo anterior",
+      "Confere o ponto e avisa sobre o limite de horas",
+      "Cobra os documentos das novas admissões",
+      "Cobra quem atrasou e lança no financeiro",
+    ],
+    rodape: "Até 4 squads · Integração com o seu ERP ou CRM",
+    destaque: true,
+  },
+  {
+    selo: "ENTERPRISE",
+    preco: "Sob consulta",
+    periodo: "",
+    exemplo: "Várias unidades ou sistema próprio",
+    inclui: [
+      "Squads para cada unidade ou área",
+      "Integração com sistemas próprios ou antigos",
+      "Acompanhamento da transição em todas as etapas",
+    ],
+    rodape: "Squads ilimitadas · Engenharia DLN",
+    destaque: false,
+  },
+]
