@@ -55,7 +55,8 @@ export const FAQ = [
   { p: "Quanto tempo para começar?", r: "Em cerca de uma semana a primeira squad está no ar." },
 ]
 
-// Prices and limits mirror PLANOS in ../data.ts (main landing): change both together.
+// Prices and limits mirror PLANOS in ../data.ts (main landing): change both together. The one
+// deliberate difference is the time-clock integration on Operação, approved for this page.
 export const PLANOS_6X1 = [
   {
     selo: "ESSENCIAL",
@@ -81,7 +82,7 @@ export const PLANOS_6X1 = [
       "Cobra os documentos das novas admissões",
       "Cobra quem atrasou e lança no financeiro",
     ],
-    rodape: "Até 4 squads · Integração com o seu ERP ou CRM",
+    rodape: "Até 4 squads · Integração com o seu ERP e o sistema de ponto",
     destaque: true,
   },
   {
