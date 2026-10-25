@@ -4,6 +4,7 @@ import { Hero } from "./components/Hero"
 import { Muda } from "./components/Muda"
 import { Efeito } from "./components/Efeito"
 import { Assume } from "./components/Assume"
+import { Rotinas } from "./components/Rotinas"
 import { Como } from "./components/Como"
 import { Custo } from "./components/Custo"
 import { Faq } from "./components/Faq"
@@ -23,6 +24,7 @@ export default function App() {
         <Muda />
         <Efeito />
         <Assume />
+        <Rotinas />
         <Como />
         <Custo />
         <Faq />
