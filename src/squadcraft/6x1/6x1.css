@@ -1,0 +1,10 @@
+/* Page-only additions on top of squadcraft.css: a focus ring that stays visible on every
+   background (green, white and ink sections). */
+:focus-visible {
+  outline: 3px solid var(--color-sc-ink);
+  outline-offset: 3px;
+}
+
+.bg-sc-ink :focus-visible {
+  outline-color: var(--color-sc-green);
+}

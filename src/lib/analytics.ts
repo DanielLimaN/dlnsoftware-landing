@@ -10,7 +10,7 @@ let ready = false
 // Until the visitor accepts the banner nothing is stored on the device: visits are counted
 // cookieless (anonymous hash computed on PostHog's servers), so ad traffic that never answers
 // the banner still shows up. Requires "cookieless server hash mode" enabled in the project.
-export function initAnalytics(site: "dln" | "squadcraft") {
+export function initAnalytics(site: "dln" | "squadcraft" | "squadcraft-6x1") {
   if (ready || !KEY) return
   posthog.init(KEY, {
     api_host: HOST,
