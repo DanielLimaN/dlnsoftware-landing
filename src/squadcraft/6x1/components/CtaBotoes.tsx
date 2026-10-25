@@ -1,6 +1,6 @@
 import { CTA, whatsappHref, type CtaTipo } from "../whatsapp"
 
-const base =
+export const ctaBase =
   "flex items-center justify-center min-h-14 px-6 py-4 text-center no-underline font-extrabold text-[clamp(15px,1.5vw,18px)] uppercase tracking-[0.01em] leading-tight border-[3px] border-sc-ink transition-transform duration-150 hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-[6px_6px_0_#15181C]"
 
 const estilo: Record<CtaTipo, string> = {
@@ -15,7 +15,7 @@ export function CtaLink({ tipo, className = "" }: { tipo: CtaTipo; className?: s
       target="_blank"
       rel="noopener"
       data-track={CTA[tipo].event}
-      className={`${base} ${estilo[tipo]} ${className}`}
+      className={`${ctaBase} ${estilo[tipo]} ${className}`}
     >
       {CTA[tipo].label}
     </a>

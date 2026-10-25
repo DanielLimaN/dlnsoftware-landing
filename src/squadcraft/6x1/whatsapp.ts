@@ -17,11 +17,19 @@ export type CtaTipo = keyof typeof CTA
 
 // The ad's UTM goes into the message itself, so the conversation on WhatsApp says which post or
 // campaign brought the person in.
-export function whatsappHref(tipo: CtaTipo, search = window.location.search) {
+function comOrigem(texto: string, separador: string, search: string) {
   const params = new URLSearchParams(search)
   const source = params.get("utm_source")
   const campaign = params.get("utm_campaign")
-  let texto: string = CTA[tipo].mensagem
-  if (source || campaign) texto += ` (origem: ${source ?? "-"}/${campaign ?? "-"})`
+  if (source || campaign) texto += `${separador}(origem: ${source ?? "-"}/${campaign ?? "-"})`
   return `${WHATSAPP_URL}?text=${encodeURIComponent(texto)}`
+}
+
+export function whatsappHref(tipo: CtaTipo, search = window.location.search) {
+  return comOrigem(CTA[tipo].mensagem, " ", search)
+}
+
+export function rotinasHref(rotinas: string[], search = window.location.search) {
+  const linhas = ["Olá! Vim pela página da 6x1. Estas rotinas tomam tempo no meu administrativo:", ...rotinas.map((r) => `- ${r}`)]
+  return comOrigem(linhas.join("\n"), "\n", search)
 }

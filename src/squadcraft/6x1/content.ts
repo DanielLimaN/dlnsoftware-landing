@@ -54,3 +54,110 @@ export const FAQ = [
   { p: "Preciso entender de tecnologia?", r: "Não. Um especialista monta tudo com você." },
   { p: "Quanto tempo para começar?", r: "Em cerca de uma semana a primeira squad está no ar." },
 ]
+
+// Prices and limits mirror PLANOS in ../data.ts (main landing): change both together. The one
+// deliberate difference is the time-clock integration on Operação, approved for this page.
+export const PLANOS_6X1 = [
+  {
+    selo: "ESSENCIAL",
+    preco: "R$ 397",
+    periodo: "/mês",
+    exemplo: "Squad de comunicação da escala",
+    inclui: [
+      "Comunica a nova escala a cada pessoa do time",
+      "Responde dúvidas sobre folgas e horários no WhatsApp",
+      "Avisa o time quando a escala muda",
+    ],
+    rodape: "1 squad · 1 número de WhatsApp",
+    destaque: false,
+  },
+  {
+    selo: "OPERAÇÃO · MAIS INDICADO",
+    preco: "R$ 1.197",
+    periodo: "/mês",
+    exemplo: "Administrativo da transição",
+    inclui: [
+      "Tudo do exemplo anterior",
+      "Confere o ponto e avisa sobre o limite de horas",
+      "Cobra os documentos das novas admissões",
+      "Cobra quem atrasou e lança no financeiro",
+    ],
+    rodape: "Até 4 squads · Integração com o seu ERP e o sistema de ponto",
+    destaque: true,
+  },
+  {
+    selo: "ENTERPRISE",
+    preco: "Sob consulta",
+    periodo: "",
+    exemplo: "Várias unidades ou sistema próprio",
+    inclui: [
+      "Squads para cada unidade ou área",
+      "Integração com sistemas próprios ou antigos",
+      "Acompanhamento da transição em todas as etapas",
+    ],
+    rodape: "Squads ilimitadas · Engenharia DLN",
+    destaque: false,
+  },
+]
+
+export const ROTINAS = [
+  {
+    area: "Atendimento",
+    itens: [
+      "Responde clientes no WhatsApp fora do horário",
+      "Informa o status do pedido e o prazo de entrega",
+      "Agenda visitas, consultas e retornos",
+      "Confirma agendamentos e avisa sobre remarcações",
+      "Pede avaliação depois do atendimento",
+    ],
+  },
+  {
+    area: "Financeiro",
+    itens: [
+      "Lembra o cliente antes do vencimento",
+      "Cobra quem atrasou e envia a segunda via do boleto",
+      "Confere pagamentos recebidos e dá baixa no sistema",
+      "Avisa a gestão sobre as contas a pagar da semana",
+      "Envia nota fiscal e comprovantes para quem pediu",
+    ],
+  },
+  {
+    area: "Compras e estoque",
+    itens: [
+      "Pede cotação a fornecedores e organiza as respostas",
+      "Confere a nota fiscal com o pedido de compra",
+      "Avisa quando um item chega ao estoque mínimo",
+      "Cobra o fornecedor sobre entregas atrasadas",
+    ],
+  },
+  {
+    area: "DP e RH",
+    itens: [
+      "Cobra os documentos das novas admissões",
+      "Responde dúvidas do time sobre folgas, férias e holerite",
+      "Lembra vencimentos de férias, exames e contratos de experiência",
+      "Comunica a escala e avisa quando ela muda",
+      "Confere o ponto e avisa sobre o limite de horas",
+    ],
+  },
+  {
+    area: "Comercial",
+    itens: [
+      "Responde no mesmo dia quem pediu orçamento",
+      "Faz o retorno dos orçamentos sem resposta",
+      "Registra o contato e o interesse do cliente no CRM",
+      "Lembra a renovação de contratos",
+      "Procura clientes que pararam de comprar",
+    ],
+  },
+  {
+    area: "Operação e logística",
+    itens: [
+      "Confirma entregas e coletas com o cliente",
+      "Avisa o cliente sobre atraso ou mudança de horário",
+      "Cobra o canhoto e o comprovante de entrega",
+      "Organiza a agenda da equipe de campo",
+      "Recebe e registra ocorrências de motoristas e técnicos",
+    ],
+  },
+]
