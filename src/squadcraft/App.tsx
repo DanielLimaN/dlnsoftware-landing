@@ -9,6 +9,7 @@ import { Como } from "./components/Como"
 import { Planos } from "./components/Planos"
 import { Duvidas } from "./components/Duvidas"
 import { Falar } from "./components/Falar"
+import { Segmentos } from "./components/Segmentos"
 import { Footer } from "./components/Footer"
 import { ConsentBanner } from "../lib/ConsentBanner"
 
@@ -26,6 +27,7 @@ export default function App() {
       <Planos />
       <Duvidas />
       <Falar />
+      <Segmentos />
       <Footer />
       <ConsentBanner variant="squadcraft" />
     </div>
