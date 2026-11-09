@@ -14,6 +14,7 @@ export default defineConfig({
         main: fileURLToPath(new URL('./index.html', import.meta.url)),
         squadcraft: fileURLToPath(new URL('./squadcraft/index.html', import.meta.url)),
         squadcraft6x1: fileURLToPath(new URL('./squadcraft/6x1/index.html', import.meta.url)),
+        squadcraftSocial: fileURLToPath(new URL('./squadcraft/social-media/index.html', import.meta.url)),
         ...entradasSegmentos(fileURLToPath(new URL('.', import.meta.url))),
       },
     },

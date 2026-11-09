@@ -17,7 +17,7 @@ import {
 const TEMPLATE = 'squadcraft/segmento.html'
 
 // Pages that exist outside the segment data, for the sitemap.
-const OUTRAS_PAGINAS = ['/', '/squadcraft', '/squadcraft/6x1']
+const OUTRAS_PAGINAS = ['/', '/squadcraft', '/squadcraft/6x1', '/squadcraft/social-media']
 
 const attr = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
